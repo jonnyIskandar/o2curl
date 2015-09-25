@@ -39,11 +39,8 @@ namespace O2System;
 
 // ------------------------------------------------------------------------
 
-require_once( SYSTEMPATH . 'factory/Response.php' );
-require_once( SYSTEMPATH . 'interfaces/Method.php' );
-
-use O2System\Libraries\Curl\Interfaces\Method;
-use O2System\Libraries\Curl\Factory\Response;
+use O2System\O2CURL\Interfaces\Method;
+use O2System\O2CURL\Factory\Response;
 
 /**
  * Curl Library
