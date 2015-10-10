@@ -39,11 +39,11 @@ namespace O2System;
 
 // ------------------------------------------------------------------------
 
-use O2System\O2CURL\Interfaces\Method;
-use O2System\O2CURL\Factory\Response;
+use O2System\CURL\Interfaces\Method as Method;
+use O2System\CURL\Factory\Response as Response;
 
 /**
- * O2CURL Library
+ * CURL Library
  *
  * @package          o2curl
  * @subpackage       
@@ -54,7 +54,7 @@ use O2System\O2CURL\Factory\Response;
  * @license          http://circle-creative.com/products/o2curl/license.html
  * @link             http://circle-creative.com
  */
-class O2CURL
+class CURL
 {
     /**
      * CURL Handle
@@ -181,7 +181,7 @@ class O2CURL
      *
      * @param string $encoding
      *
-     * @return \O2System\Libraries\Curl
+     * @return \O2System\CURL
      */
     public function set_encoding( $encoding = 'gzip' )
     {
@@ -199,7 +199,7 @@ class O2CURL
      * @param string     $password Authentication Password
      * @param int|string $method   Authentication Method
      *
-     * @return \O2System\Libraries\Curl
+     * @return \O2System\CURL
      */
     public function auth( $username = '', $password = '', $method = CURLAUTH_BASIC )
     {
@@ -240,7 +240,7 @@ class O2CURL
      *
      * @param array $headers headers array
      *
-     * @return  \O2System\Libraries\Curl
+     * @return  \O2System\CURL
      */
     public function set_headers( array $headers = array() )
     {
@@ -257,7 +257,7 @@ class O2CURL
      * @param string $key  header name
      * @param string $value header value
      *
-     * @return \O2System\Libraries\Curl
+     * @return \O2System\CURL
      */
     public function set_header( $key, $value )
     {
@@ -281,7 +281,7 @@ class O2CURL
      * Clear all the default headers
      *
      * @access  public
-     * @return \O2System\Libraries\Curl
+     * @return \O2System\CURL
      */
     public function clear_headers()
     {
@@ -582,12 +582,11 @@ class O2CURL
     {
         if( $path )
         {
-            if( $path[ 0 ] === '/' )
+            if( isset($path[0]) AND $path[ 0 ] === '/' )
             {
                 $path = substr( $path, 1 );
-            }
-
-            $url .= $path;
+                $url .= $path;
+            }         
         }
 
         if( ! empty( $params ) )

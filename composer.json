@@ -1,6 +1,6 @@
 {
 	"name"              : "o2system/o2curl",
-	"description"       : "CURL Request",
+	"description"       : "Lightweight HTTP Request Libraries",
 	"license"           : "MIT",
 	"minimum-stability" : "dev",
 	"version"           : "1.0.0",
@@ -35,15 +35,16 @@
 		"wiki"        : "http://o2system.center/standalone/o2gears/user-guide/getting-started.html",
 		"github-wiki" : "http://github.com/circlecreative/o2gears/wiki"
 	},
+	"minimum-stability" : "dev",
 	"require"           : {
 		"php"              : ">=5.4.0"
 	},
 	"autoload"          : {
 		"psr-4" : {
-			"O2System\\O2Curl\\" : "src"
+			"O2System\\CURL\\" : "src"
 		},
 		"files" : [
-			"src/O2CURL.php"
+			"src/CURL.php"
 		]
 	}
 }
