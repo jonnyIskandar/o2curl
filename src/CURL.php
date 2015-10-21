@@ -56,6 +56,8 @@ use O2System\CURL\Factory\Response as Response;
  */
 class CURL
 {
+    use Glob\Singleton\Basics;
+
     /**
      * CURL Handle
      *
@@ -554,7 +556,12 @@ class CURL
 
         if( $error )
         {
-            throw new \Exception( $error );
+            // Glob Exception
+            $exception = new Glob\Exception();
+            $exception->register_path( __DIR__ . '/Views/' );
+            $exception->register_handler();
+
+            throw new \RuntimeException( $error );
         }
 
         return new Response( $response, $info );

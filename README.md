@@ -1,9 +1,9 @@
 O2CURL
 =====
-[O2CURL][2] is an Open Source PHP Lightweight HTTP Request Client Libraries. 
+[O2CURL][3] is an Open Source PHP Lightweight HTTP Request Client Libraries. 
 Another amazing product from [PT. Lingkar Kreasi (Circle Creative)][1], released under MIT License.
-[O2CURL][2] is build for working more powerfull with O2System Framework, but also can be used for integrated with others as standalone version with limited features.
-[O2CURL][2] is insipired by [Unirest][3], so [O2CURL][2] is has also functionality similar with it, but a little bit different at the syntax.
+[O2CURL][3] is build for working more powerfull with O2System Framework, but also can be used for integrated with others as standalone version with limited features.
+[O2CURL][3] is insipired by [Unirest][10], so [O2CURL][2] is has also functionality similar with it, but a little bit different at the syntax.
 
 Features
 --------
@@ -17,7 +17,7 @@ Features
 
 Installation
 ------------
-The best way to install O2CURL is to use [Composer][8]
+The best way to install O2CURL is to use [Composer][9]
 ```
 composer require o2system/o2curl:'dev-master'
 ```
@@ -41,11 +41,11 @@ More details at the Wiki. (Coming Soon)
 
 Ideas and Suggestions
 ---------------------
-Please kindly mail us at [developer@circle-creative.com][5] or [steeven@circle-creative.com][6].
+Please kindly mail us at [developer@o2system.in][7].
 
 Bugs and Issues
 ---------------
-Please kindly submit your issues at Github so we can track all the issues along development.
+Please kindly submit your [issues at Github][5] so we can track all the issues along development.
 
 System Requirements
 -------------------
@@ -54,13 +54,15 @@ System Requirements
 
 Credits
 -------
-* Founder and Lead Projects: [Steeven Andrian Salim (steevenz.com)][4]
+* Founder and Lead Projects: [Steeven Andrian Salim (steevenz.com)][7]
 
-[1]: http://www.circle-creative.com
-[2]: http://www.circle-creative.com/products/o2curl
-[3]: http://www.unirest.io
-[4]: http://www.steevenz.com
-[5]: mailto:developer@circle-creative.com
-[6]: mailto:steeven@circle-creative.com
-[7]: https://packagist.org/packages/o2system/o2curl
-[8]: https://getcomposer.org
+[1]: http://circle-creative.com
+[2]: http://o2system.in
+[3]: http://o2system.in/features/standalone/o2cache
+[4]: http://o2system.in/features/standalone/o2cache/license
+[5]: http://github.com/circlecreative/o2cache/issues
+[6]: https://packagist.org/packages/o2system/o2cache
+[7]: http://steevenz.com
+[8]: mailto:developer@o2system.in
+[9]: https://getcomposer.org
+[10]: http://unirest.io

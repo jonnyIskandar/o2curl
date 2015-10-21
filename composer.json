@@ -36,7 +36,8 @@
 		"github-wiki" : "http://github.com/circlecreative/o2gears/wiki"
 	},
 	"require"           : {
-		"php"              : ">=5.4.0"
+		"php"    : ">=5.4.0",
+		"o2glob" : "dev-master"
 	},
 	"autoload"          : {
 		"psr-4" : {
