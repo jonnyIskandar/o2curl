@@ -1,9 +1,12 @@
 O2CURL
 =====
+[![Latest Stable Version](https://poser.pugx.org/o2system/o2curl/v/stable)](https://packagist.org/packages/o2system/o2curl) [![Total Downloads](https://poser.pugx.org/o2system/o2curl/downloads)](https://packagist.org/packages/o2system/o2curl) [![Latest Unstable Version](https://poser.pugx.org/o2system/o2curl/v/unstable)](https://packagist.org/packages/o2system/o2curl) [![License](https://poser.pugx.org/o2system/o2curl/license)](https://packagist.org/packages/o2system/o2curl)
+
 [O2CURL][3] is an Open Source PHP Lightweight HTTP Request Client Libraries. 
-Another amazing product from [PT. Lingkar Kreasi (Circle Creative)][1], released under MIT License.
 [O2CURL][3] is build for working more powerfull with O2System Framework, but also can be used for integrated with others as standalone version with limited features.
 [O2CURL][3] is insipired by [Unirest][10], so [O2CURL][2] is has also functionality similar with it, but a little bit different at the syntax.
+
+Another amazing product from [PT. Lingkar Kreasi (Circle Creative)][1], released under MIT License.
 
 Features
 --------
@@ -19,25 +22,46 @@ Installation
 ------------
 The best way to install O2CURL is to use [Composer][9]
 ```
-composer require o2system/o2curl:'dev-master'
+composer require o2system/o2curl:"dev-master"
 ```
 
 Usage
 -----
-```
-$headers = array("Accept" => "application/json");
-$content = array("foo" => "hello", "bar" => "world");
+```php
+use O2System\CURL;
 
-$curl = new \O2System\CURL;
-$response = $curl->post("http://domain.com/", 'request/json', $headers, $content);
+$curl = new CURL;
+
+/*
+ * Post Request
+ *
+ * @param string $url      Request URL
+ * @param string $path     Request URI Path Segment
+ * @param array  $params   Request Parameters
+ * @param array  $headers  Request Headers
+ *
+ * @return \O2System\CURL\Factory\Request
+ */
+$response = $curl->post(
+    "http://domain.com/", // URL
+    'request/json',  // Path URI Segment
+    // Parameters
+    array(
+        "foo" => "hello", 
+        "bar" => "world"
+    ), 
+    // Headers
+    array(
+        "Accept" => "application/json"
+    )
+);
 
 $response->meta;        // HTTP Request Metadata
-$response->headers;     // Headers
 $response->body;        // Parsed body
 $response->raw_body;    // Unparsed body
 ```
 
-More details at the Wiki. (Coming Soon)
+More details at the [Wiki](http://github.com/circlecreative/o2cache/wiki).
 
 Ideas and Suggestions
 ---------------------
@@ -50,11 +74,14 @@ Please kindly submit your [issues at Github][5] so we can track all the issues a
 System Requirements
 -------------------
 - PHP 5.4+
-- Composer
+- [Composer][9]
 
 Credits
 -------
 * Founder and Lead Projects: [Steeven Andrian Salim (steevenz.com)][7]
+* Github Pages Designer and Writer: [Teguh Rianto](http://teguhrianto.tk)
+* Wiki Writer: [Steeven Andrian Salim](http://steevenz.com) (EN), Aradea Hind (ID)
+* Special Thanks To: Yudi Primaputra (CTO - PT. YukBisnis Indonesia)
 
 [1]: http://circle-creative.com
 [2]: http://o2system.in
