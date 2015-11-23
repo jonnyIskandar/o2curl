@@ -57,11 +57,12 @@ $response = $curl->post(
 );
 
 $response->meta;        // HTTP Request Metadata
+$response->header;      // Parsed header
 $response->body;        // Parsed body
 $response->raw_body;    // Unparsed body
 ```
 
-More details at the [Wiki](http://github.com/circlecreative/o2cache/wiki).
+More details at the [Wiki](http://github.com/circlecreative/o2curl/wiki).
 
 Ideas and Suggestions
 ---------------------
@@ -85,10 +86,10 @@ Credits
 
 [1]: http://circle-creative.com
 [2]: http://o2system.in
-[3]: http://o2system.in/features/standalone/o2cache
-[4]: http://o2system.in/features/standalone/o2cache/license
-[5]: http://github.com/circlecreative/o2cache/issues
-[6]: https://packagist.org/packages/o2system/o2cache
+[3]: http://o2system.in/features/standalone/o2curl
+[4]: http://o2system.in/features/standalone/o2curl/license
+[5]: http://github.com/circlecreative/o2curl/issues
+[6]: https://packagist.org/packages/o2system/o2curl
 [7]: http://steevenz.com
 [8]: mailto:developer@o2system.in
 [9]: https://getcomposer.org
