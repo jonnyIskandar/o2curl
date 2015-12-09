@@ -2,7 +2,6 @@
 	"name"              : "o2system/o2curl",
 	"description"       : "Lightweight HTTP Request Libraries",
 	"license"           : "MIT",
-	"version"           : "1.0.0-beta",
 	"type"              : "php-libraries",
 	"keywords"          : [ "utilities", "php", "framework", "driver", "libraries", "database" ],
 	"authors"           : [
@@ -36,7 +35,7 @@
 	},
 	"require"           : {
 		"php"    : ">=5.4.0",
-		"o2system/o2glob" : "dev-master"
+		"o2system/o2glob" : "1.*"
 	},
 	"autoload"          : {
 		"psr-4" : {
