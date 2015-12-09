@@ -27,7 +27,7 @@
  * THE SOFTWARE.
  *
  * @package     o2curl
- * @author      Circle Creative Developer Team
+ * @author      O2System Developer Team
  * @copyright   Copyright (c) 2005 - 2015, PT. Lingkar Kreasi (Circle Creative).
  * @license     http://circle-creative.com/products/o2curl/license.html
  * @license     http://opensource.org/licenses/MIT  MIT License

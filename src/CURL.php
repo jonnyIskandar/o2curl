@@ -27,7 +27,7 @@
  * THE SOFTWARE.
  *
  * @package		o2curl
- * @author		Circle Creative Developer Team
+ * @author		O2System Developer Team
  * @copyright	Copyright (c) 2005 - 2015, PT. Lingkar Kreasi (Circle Creative).
  * @license		http://circle-creative.com/products/o2curl/license.html
  * @license	    http://opensource.org/licenses/MIT	MIT License
@@ -49,7 +49,7 @@ use O2System\CURL\Factory\Response as Response;
  * @subpackage       
  * @category         bootstrap
  * @version          1.0 
- * @author           Circle Creative Developer Team
+ * @author           O2System Developer Team
  * @copyright        Copyright (c) 2005 - 2014 PT. Lingkar Kreasi (Circle Creative)
  * @license          http://circle-creative.com/products/o2curl/license.html
  * @link             http://circle-creative.com
@@ -142,7 +142,7 @@ class CURL
      * @access  protected
      * @type    string
      */
-    protected $_user_agent   = 'O2CURL/1.0';
+    protected $_useragent   = 'O2CURL/1.0';
 
     /**
      * CURL Headers
@@ -154,6 +154,11 @@ class CURL
 
     // ------------------------------------------------------------------------
 
+    public function timeout($timeout)
+    {
+        $this->_timeout = (int) $timeout;
+    }
+
     /**
      * Set Verify CURL SSL
      *
@@ -163,7 +168,7 @@ class CURL
      *
      * @return $this
      */
-    public function set_verify( $peer = TRUE, $host = 2, $cainfo = NULL )
+    public function verify( $peer = TRUE, $host = 2, $cainfo = NULL )
     {
         $this->_verifypeer = $peer;
         $this->_verifyhost = $host;
@@ -185,7 +190,7 @@ class CURL
      *
      * @return \O2System\CURL
      */
-    public function set_encoding( $encoding = 'gzip' )
+    public function encoding( $encoding = 'gzip' )
     {
         $this->_encoding = $encoding;
 
@@ -244,7 +249,7 @@ class CURL
      *
      * @return  \O2System\CURL
      */
-    public function set_headers( array $headers = array() )
+    public function headers( array $headers = array() )
     {
         $this->_headers = array_merge( $this->_headers, $headers );
 
@@ -261,7 +266,7 @@ class CURL
      *
      * @return \O2System\CURL
      */
-    public function set_header( $key, $value )
+    public function header( $key, $value )
     {
         $this->_headers[ $key ] = $value;
 
@@ -270,9 +275,9 @@ class CURL
 
     // ------------------------------------------------------------------------
 
-    public function set_user_agent( $user_agent )
+    public function useragent( $useragent )
     {
-        $this->_user_agent = $user_agent;
+        $this->_useragent = $useragent;
 
         return $this;
     }
@@ -280,12 +285,12 @@ class CURL
     // ------------------------------------------------------------------------
 
     /**
-     * Clear all the default headers
+     * Reset Headers
      *
      * @access  public
      * @return \O2System\CURL
      */
-    public function clear_headers()
+    public function reset_headers()
     {
         $this->_headers = array();
 
@@ -321,7 +326,7 @@ class CURL
      */
     public function get( $url, $path = '', array $params = array(), array $headers = array() )
     {
-        $url = $this->generate_url( $url, $path, $params );
+        $url = $this->parse_url( $url, $path, $params );
 
         if( ! empty( $headers ) )
         {
@@ -346,11 +351,11 @@ class CURL
      */
     public function post( $url, $path = '', array $params = array(), array $headers = array() )
     {
-        $url = $this->generate_url( $url, $path );
+        $url = $this->parse_url( $url, $path );
 
         if( ! empty( $headers ) )
         {
-            $this->_build_headers( $headers );
+            $this->set_headers( $headers );
         }
 
         return $this->_request( $url, Method::POST, $params );
@@ -371,11 +376,11 @@ class CURL
      */
     public function head( $url, $path = '', array $params = array(), array $headers = array() )
     {
-        $url = $this->generate_url( $url, $path );
+        $url = $this->parse_url( $url, $path );
 
         if( ! empty( $headers ) )
         {
-            $this->_build_headers( $headers );
+            $this->set_headers( $headers );
         }
 
         return $this->_request( $url, Method::HEAD, $params );
@@ -398,7 +403,7 @@ class CURL
     {
         if( ! empty( $headers ) )
         {
-            $this->_build_headers( $headers );
+            $this->set_headers( $headers );
         }
 
         return $this->_request( $url, Method::CONNECT, $params );
@@ -421,7 +426,7 @@ class CURL
     {
         if( ! empty( $headers ) )
         {
-            $this->_build_headers( $headers );
+            $this->set_headers( $headers );
         }
 
         return $this->_request( $url, Method::PUT, $params );
@@ -444,7 +449,7 @@ class CURL
     {
         if( ! empty( $headers ) )
         {
-            $this->_build_headers( $headers );
+            $this->set_headers( $headers );
         }
 
         return $this->_request( $url, Method::PATCH, $params );
@@ -467,7 +472,7 @@ class CURL
     {
         if( ! empty( $headers ) )
         {
-            $this->_build_headers( $headers );
+            $this->set_headers( $headers );
         }
 
         return $this->_request( $url, Method::TRACE, $params );
@@ -496,7 +501,7 @@ class CURL
             CURLOPT_SSL_VERIFYHOST => $this->_verifyhost,
             CURLOPT_TIMEOUT        => $this->_timeout,
             CURLOPT_URL            => $url,
-            CURLOPT_USERAGENT      => $this->_user_agent,
+            CURLOPT_USERAGENT      => $this->_useragent,
             CURLOPT_ENCODING       => 'gzip',
         ];
 
@@ -552,15 +557,10 @@ class CURL
         curl_setopt_array( $this->_handle, $options );
         $response = curl_exec( $this->_handle );
         $error = curl_error( $this->_handle );
-        $info = $this->get_info();
+        $info = $this->info();
 
         if( $error )
         {
-            // Glob Exception
-            $exception = new Glob\Exception();
-            $exception->register_path( __DIR__ . '/Views/' );
-            $exception->register_handler();
-
             throw new \RuntimeException( $error );
         }
 
@@ -569,7 +569,7 @@ class CURL
 
     // ------------------------------------------------------------------------
 
-    public function get_info( $options = FALSE )
+    public function info( $options = FALSE )
     {
         if( $options )
         {
@@ -585,15 +585,16 @@ class CURL
 
     // ------------------------------------------------------------------------
 
-    public function generate_url( $url, $path = '', array $params = array() )
+    public function parse_url( $url, $path = '', array $params = array() )
     {
         if( $path )
         {
             if( isset($path[0]) AND $path[ 0 ] === '/' )
             {
                 $path = substr( $path, 1 );
-                $url .= $path;
-            }         
+            }
+
+            $url .= $path;
         }
 
         if( ! empty( $params ) )
