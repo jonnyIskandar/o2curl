@@ -401,6 +401,8 @@ class CURL
      */
     public function connect( $url, $path = '', array $params = array(), array $headers = array() )
     {
+        $url = $this->parse_url( $url, $path );
+
         if( ! empty( $headers ) )
         {
             $this->set_headers( $headers );
@@ -424,6 +426,8 @@ class CURL
      */
     public function put( $url, $path = '', array $params = array(), array $headers = array() )
     {
+        $url = $this->parse_url( $url, $path );
+
         if( ! empty( $headers ) )
         {
             $this->set_headers( $headers );
@@ -447,6 +451,8 @@ class CURL
      */
     public function patch( $url, $path = '', array $params = array(), array $headers = array() )
     {
+        $url = $this->parse_url( $url, $path );
+
         if( ! empty( $headers ) )
         {
             $this->set_headers( $headers );
@@ -470,6 +476,8 @@ class CURL
      */
     public function trace( $url, $path = '', array $params = array(), array $headers = array() )
     {
+        $url = $this->parse_url( $url, $path );
+
         if( ! empty( $headers ) )
         {
             $this->set_headers( $headers );
