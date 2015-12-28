@@ -26,12 +26,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @package		o2curl
- * @author		O2System Developer Team
- * @copyright	Copyright (c) 2005 - 2015, PT. Lingkar Kreasi (Circle Creative).
- * @license		http://circle-creative.com/products/o2curl/license.html
- * @license	    http://opensource.org/licenses/MIT	MIT License
- * @link		http://circle-creative.com/products/o2curl.html
+ * @package     o2curl
+ * @author      O2System Developer Team
+ * @copyright   Copyright (c) 2005 - 2015, PT. Lingkar Kreasi (Circle Creative).
+ * @license     http://circle-creative.com/products/o2curl/license.html
+ * @license     http://opensource.org/licenses/MIT  MIT License
+ * @link        http://circle-creative.com/products/o2curl.html
  */
 // ------------------------------------------------------------------------
 
@@ -46,9 +46,9 @@ use O2System\CURL\Factory\Response as Response;
  * CURL Library
  *
  * @package          o2curl
- * @subpackage       
+ * @subpackage
  * @category         bootstrap
- * @version          1.0 
+ * @version          1.0
  * @author           O2System Developer Team
  * @copyright        Copyright (c) 2005 - 2014 PT. Lingkar Kreasi (Circle Creative)
  * @license          http://circle-creative.com/products/o2curl/license.html
@@ -154,7 +154,7 @@ class CURL
 
     // ------------------------------------------------------------------------
 
-    public function timeout($timeout)
+    public function set_timeout($timeout)
     {
         $this->_timeout = (int) $timeout;
     }
@@ -168,7 +168,7 @@ class CURL
      *
      * @return $this
      */
-    public function verify( $peer = TRUE, $host = 2, $cainfo = NULL )
+    public function set_verify( $peer = TRUE, $host = 2, $cainfo = NULL )
     {
         $this->_verifypeer = $peer;
         $this->_verifyhost = $host;
@@ -208,7 +208,7 @@ class CURL
      *
      * @return \O2System\CURL
      */
-    public function auth( $username = '', $password = '', $method = CURLAUTH_BASIC )
+    public function set_auth( $username = '', $password = '', $method = CURLAUTH_BASIC )
     {
         $this->_auth[ 'user' ] = $username;
         $this->_auth[ 'pass' ] = $password;
@@ -230,7 +230,7 @@ class CURL
      *
      * @return Curl
      */
-    public function proxy( $address, $port = 1080, $type = CURLPROXY_HTTP, $tunnel = FALSE )
+    public function set_proxy( $address, $port = 1080, $type = CURLPROXY_HTTP, $tunnel = FALSE )
     {
         $this->_proxy[ 'type' ] = $type;
         $this->_proxy[ 'port' ] = $port;
@@ -249,7 +249,7 @@ class CURL
      *
      * @return  \O2System\CURL
      */
-    public function headers( array $headers = array() )
+    public function set_headers( array $headers = array() )
     {
         $this->_headers = array_merge( $this->_headers, $headers );
 
@@ -266,7 +266,7 @@ class CURL
      *
      * @return \O2System\CURL
      */
-    public function header( $key, $value )
+    public function set_header( $key, $value )
     {
         $this->_headers[ $key ] = $value;
 
@@ -275,7 +275,7 @@ class CURL
 
     // ------------------------------------------------------------------------
 
-    public function useragent( $useragent )
+    public function set_useragent( $useragent )
     {
         $this->_useragent = $useragent;
 
