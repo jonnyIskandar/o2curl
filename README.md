@@ -22,7 +22,7 @@ Installation
 ------------
 The best way to install O2CURL is to use [Composer][9]
 ```
-composer require o2system/o2curl:"dev-master"
+composer require o2system/o2curl
 ```
 
 Usage
