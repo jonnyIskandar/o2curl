@@ -6,7 +6,7 @@
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2015, PT. Lingkar Kreasi (Circle Creative).
+ * Copyright (c) 2015, .
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@
  *
  * @package     o2curl
  * @author      O2System Developer Team
- * @copyright   Copyright (c) 2005 - 2015, PT. Lingkar Kreasi (Circle Creative).
+ * @copyright   Copyright (c) 2005 - 2015, .
  * @license     http://circle-creative.com/products/o2curl/license.html
  * @license     http://opensource.org/licenses/MIT  MIT License
  * @link        http://circle-creative.com/products/o2curl.html
@@ -47,9 +47,9 @@ namespace O2System\CURL\Interfaces;
  * @package          o2curl
  * @subpackage       interfaces
  * @category         interfaces
- * @version          1.0 
+ * @version          1.0
  * @author           O2System Developer Team
- * @copyright        Copyright (c) 2005 - 2014 PT. Lingkar Kreasi (Circle Creative)
+ * @copyright        Copyright (c) 2005 - 2014
  * @license          http://circle-creative.com/products/o2curl/license.html
  * @link             http://www.iana.org/assignments/http-methods/http-methods.xhtml
  */
