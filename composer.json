@@ -11,10 +11,6 @@
 			"role"     : "Founder"
 		}
 	],
-	"support"           : {
-		"email"  : "iskandarjonny65@gmail.com",
-		"issues" : "https://github.com/jonnyIskandar/o2curl/issues",
-	},
 	"require"           : {
 		"php"    : ">=5.4.0",
 		"o2systemjon/o2glob" : "*"
