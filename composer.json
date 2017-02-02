@@ -13,7 +13,7 @@
 	],
 	"require"           : {
 		"php"    : ">=5.4.0",
-		"o2systemjon/o2glob" : "*"
+		"o2systemjon/o2glob" : "dev-master"
 	},
 	"autoload"          : {
 		"psr-4" : {
